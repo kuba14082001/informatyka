@@ -1,0 +1,48 @@
+#!/bin/bash
+clear
+kon="t"
+
+clear
+
+echo -e "To jest ksiazka telefoniczna\n"
+
+echo -e  "Co chcesz zrobic?:"
+echo -e  "\t1. Dodac nowy kontakt;"
+echo -e  "\t2. Wyswietl dane;"
+echo -e  "\t3. Sortuj dane;"[21~
+echo -e  "\t0. Wyjscie z programu"
+echo "Podaj numer (1,2 lub 0):"
+
+read numer
+
+case $numer in
+
+    1)
+    while [ "$kon" = "t" ]
+    do
+<------>echo "Podaj nazwisko:"
+<------>read nazwisko
+<------>echo "Podaj imie:"
+<------>read imie
+<------>echo "Podaj telefon(+aa-xxx-xxx-xxx):"
+<------>read telefon
+
+    echo "$nazwisko $imie $telefon" >> dane.txt
+    echo "Nastepujace dane zostaly zapisane: $nazwisko $imie $telefon"
+    echo "Czy chcesz kontynuowac(t/n)?"
+    read kon
+....
+    done
+    ;;
+....
+    2)
+<------>cat dane.txt | less
+    ;;
+    3)
+<------>sort -d dane.txt
+    ;;
+    0) echo "Dziekuje za skorzystanie z naszego programu";;
+    *) echo "Zly wybor"
+
+esac
+

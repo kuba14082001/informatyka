@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <cmath>
+#include <unistd.h>
+#include <math.h>
+int main()
+{
+float a, b, r, a2, b2, r2, d, dr;
+
+printf("wprowadz pierwsze rownanie okregu w postaci (x-a)^2 + (y-b)^2 = r^2\n"); sleep(1);
+printf("uzupelnij a,b,r\n"); sleep(0.5);
+printf("a="); scanf("%f", &a);
+printf("b="); scanf("%f", &b);
+printf("c="); scanf("%f", &r);
+
+printf("wprowadz drugie rownanie okregu w postaci (x-a)^2 + (y-b)^2 = r^2\n"); sleep(1);
+printf("uzupelnij a,b,r \n"); sleep(0.5);
+printf("a="); scanf("%f", &a2);
+printf("b="); scanf("%f", &b2);
+printf("r="); scanf("%f", &r2);
+
+printf("twoje pierwsze rownanie okregu  ma postac (x-%f)^2 + (y-%f)^2 = %f\n", a, b, r*r); sleep(1);
+printf("twoje drugie rownanie okregu ma postac (x-%f)^2 + (y-%f)^2 = %f\n", a2, b2, r2*r2); sleep(1);
+
+d=sqrt(a2*a2-2*a2*a+a*a+b2*b2-2*b2*b+b*b);
+dr=fabs(r-r2);
+
+if(d==dr) {printf("Okregi sa styczne wewnetrznie\n");}
+if(d==r+r2) {printf("Okregi sa styczne zewnetrznie\n");}
+if(d<dr) {printf("Okregi sa rozlaczne wewnetrznie\n");}
+if(d>r+r2) {printf("Okregi sa rozlaczne zewnetrznie\n");}
+if(a==a2 && b==b2) {printf("Okregi sa wspolsrodkowe\n");}
+if(dr<d && d<r+r2) {printf("Okregi przecinaja sie w dwoch punktach\n");}
+
+printf("Dystans miedzy nimi wynosi %f\n", d);
+
+return 0;
+}
